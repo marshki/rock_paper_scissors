@@ -1,4 +1,4 @@
-#Rock-Scissor-Paper 
+# Rock-Scissor-Paper 
 
 A text-based Python 2.7.6 implementation of the game Rock-Paper-Scissors.
 
@@ -14,7 +14,7 @@ Game play:
 
 Menu driven program. Each round player is prompted for input. Program determines victor, while keeping cumulative score. Game is over when one player wins five rounds.   
 
-# History 
+## History 
 
 First commit May 9, 2016 @ 14:10 ET. 
 
