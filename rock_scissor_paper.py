@@ -11,11 +11,11 @@ Game play:
         * 0 points for ties 
         * first player to reach 5 points wins. 
 """
-# Import random library 
-from random import choice 
+# Import libraries  
 import sys 
-# Declarations 
+from random import choice 
 
+# Declarations 
 moves = ["r", "p", "s"] # Possible moves  
 
 winning_combos = {("r", "s"), ("s", "p"), ("p", "r")} # Winning outcomes 
@@ -38,19 +38,19 @@ Good luck!
 """
 
 # Define functions 
-def human():
+def human():	# Prompt for user input. Accept upper and lower variants
 	print 
 	print "R: Rock    P: Paper    S: Scissor" 
 	human_move = raw_input("Enter your choice: ").lower()
 	return human_move
 ()
 
-def bot():
+def bot():	# Randomize bot's move 
 	bot_move = choice(moves)
 	return bot_move
 ()
 
-def game_over():
+def game_over():	# Game over when either player scores five 
 	if bot_score == 5: 
 		print 
 		print "The bot wins, you puny human. " 
@@ -63,7 +63,7 @@ def game_over():
 
 # The program 
 
-while True:
+while True:	# While loop to compare output of players, decide on winner, and keep score 
 	hu, bo  = human(), bot()
 	
 	if  hu == bo:
