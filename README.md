@@ -12,6 +12,9 @@ Game play:
 
 ## Usage 
 
+To run directly from a shell: 
+`python rock_scissor_paper.py`
+
 Menu driven program. Each round player is prompted for input. Program determines victor, while keeping cumulative score. Game is over when one player wins five rounds.   
 
 ## History 
