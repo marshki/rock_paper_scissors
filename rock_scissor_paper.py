@@ -38,10 +38,10 @@ Good luck!
 # Define functions 
 def human():	# Prompt for user input. Accept upper and lower variants
 	print 
-	# print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
 	while True:
 		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
 		human_move = raw_input("Enter your choice: ").lower()	
+		
 		if human_move in moves: 
 			return human_move 
 		else: 
