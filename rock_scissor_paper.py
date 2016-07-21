@@ -36,7 +36,9 @@ Good luck!
 """
 
 # Define functions 
-def human():	# Prompt for user input. Accept upper and lower variants
+def human():		
+	""" Prompt user for input, and limit options to acceptable moves.  
+	"""
 	print 
 	while True:
 		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
@@ -50,12 +52,16 @@ def human():	# Prompt for user input. Accept upper and lower variants
 			print 
 ()
 
-def bot():	# Randomize bot's move 
+def bot():	
+	""" Randomize bot's move. 
+	""" 
 	bot_move = choice(moves)
 	return bot_move
 ()
 
-def game_over():	# Game over when either player scores five points 
+def game_over():	
+	""" Game over when either player scores five points. 
+	"""
 	if bot_score == 5: 
 		print 
 		print "The bot wins, you puny human. " 
