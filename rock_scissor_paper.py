@@ -15,7 +15,7 @@ import sys
 from random import choice 
 
 # Declarations 
-moves = ["r", "p", "s", "q"] # Possible moves  
+moves = ["r", "p", "s"] # Possible moves  
 
 winning_combos = {("r", "s"), ("s", "p"), ("p", "r")} # Winning outcomes 
 
@@ -36,15 +36,30 @@ Good luck!
 """
 
 # Define functions 
+
+def rounds(): 
+	""" Prompt user for number of rounds for gameplay, and catch invalid input.
+	"""
+	while True: 
+		print
+		rounds = raw_input("Type the number of rounds you want to play, and press enter: ")
+		try:
+			rounds = int(rounds) 
+			print "Cool! Let\'s play %d rounds of Rock-Paper-Scissors" %rounds
+			return rounds
+		except: 
+			print "Sorry, that\'s not a valid number. Please try again."
+()
+
 def human():		
 	""" Prompt user for input, and limit options to acceptable moves.  
 	"""
-	print 
 	while True:
+		print
 		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
 		human_move = raw_input("Enter your choice: ").lower()	
 		
-		if human_move in moves: 
+		if human_move in moves or human_move == "q": 
 			return human_move 
 		else: 
 			print	
@@ -95,3 +110,4 @@ while True:	# While loop to compare output of players, decide on winner, and kee
 		print "Your score:%s Bot score:%s" %(human_score, bot_score)
 
 	game_over()	
+
