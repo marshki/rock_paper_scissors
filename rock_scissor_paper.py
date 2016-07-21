@@ -38,9 +38,16 @@ Good luck!
 # Define functions 
 def human():	# Prompt for user input. Accept upper and lower variants
 	print 
-	print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
-	human_move = raw_input("Enter your choice: ").lower()
-	return human_move 
+	# print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
+	while True:
+		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
+		human_move = raw_input("Enter your choice: ").lower()	
+		if human_move in moves: 
+			return human_move 
+		else: 
+			print	
+			print "Sorry, that\'s invalid input."
+			print 
 ()
 
 def bot():	# Randomize bot's move 
@@ -63,7 +70,7 @@ def game_over():	# Game over when either player scores five points
 while True:	# While loop to compare output of players, decide on winner, and keep score 
 	hu, bo  = human(), bot()
 	
-	if hu == "q":
+	if hu == "q":		# Allow user to quit at anytime
 		sys.exit(0) 
 
 	if  hu == bo:
