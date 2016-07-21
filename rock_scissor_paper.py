@@ -15,7 +15,7 @@ import sys
 from random import choice 
 
 # Declarations 
-moves = ["r", "p", "s"] # Possible moves  
+moves = ["r", "p", "s", "q"] # Possible moves  
 
 winning_combos = {("r", "s"), ("s", "p"), ("p", "r")} # Winning outcomes 
 
@@ -38,7 +38,7 @@ Good luck!
 # Define functions 
 def human():	# Prompt for user input. Accept upper and lower variants
 	print 
-	print "R: Rock    P: Paper    S: Scissor" 
+	print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
 	human_move = raw_input("Enter your choice: ").lower()
 	return human_move 
 ()
@@ -63,6 +63,9 @@ def game_over():	# Game over when either player scores five points
 while True:	# While loop to compare output of players, decide on winner, and keep score 
 	hu, bo  = human(), bot()
 	
+	if hu == "q":
+		sys.exit(0) 
+
 	if  hu == bo:
 		print 
 		print "You both choose %s. Grr... a tie!" % (bo)
