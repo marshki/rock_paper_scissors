@@ -25,7 +25,7 @@ human_score, bot_score = 0, 0 # Initialize player scores
 print"""
 ********** Welcome to Rock-Paper-Scissors! **********
 
-See if you can win five rounds before the bot.
+See if you can beat the bot!
 
 Keep in mind:
         * rock breaks scissors,  
@@ -41,12 +41,12 @@ def human():
 	"""
 	while True:
 		print
-		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 
-		human_move = raw_input("Enter your choice: ").lower()	
+		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 	# Possible moves
+		human_move = raw_input("Enter your choice: ").lower()	# accept upper and lower variations of user input
 		
-		if human_move in moves or human_move == "q": 
+		if human_move in moves or human_move == "q": 		# if the move is acceptable, return it 
 			return human_move 
-		else: 
+		else: 							# else ask the user to try again
 			print	
 			print "Sorry, that\'s invalid input."
 			print 
@@ -55,14 +55,14 @@ def human():
 def bot():	
 	""" Randomize bot's move. 
 	""" 
-	bot_move = choice(moves)
+	bot_move = choice(moves)					# randomize the bot's move and return it
 	return bot_move
 ()
 
 def game_over():	
-	""" Game over when either player scores five points. 
+	""" Game over when either player wins user defined number of rounds first. 
 	"""
-	if bot_score == num_rounds: 
+	if bot_score == num_rounds: 					
 		print 
 		print "The bot wins, you puny human. " 
 		sys.exit() 
@@ -73,38 +73,38 @@ def game_over():
 ()
 
 # The program
-while True: 
+while True: 	# while loop to prompt user for number of rounds to play  
 	print
 	num_rounds = raw_input("Type the number of rounds you want to play, and press enter: ")
 	try:
-		num_rounds = int(num_rounds) 
+		num_rounds = int(num_rounds)	# convert input to int 
 		print "Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds
 		break 			
-	except: 
+	except: 				# if input can not convert to int, prompt user to re-enter a choice
 		print "Sorry, that\'s not a valid number. Please try again."
 
  
-while True:	# While loop to compare output of players, decide on winner, and keep score 
+while True:	# while loop to compare output of players, decide on winner, and keep score 
 	
 	hu, bo  = human(), bot()
 	
-	if hu == "q":		# Allow user to quit at anytime
+	if hu == "q":				# Allow user to quit at anytime
 		sys.exit(0) 
 
-	if  hu == bo:
+	if  hu == bo:				# conditions for a tie 
 		print 
 		print "You both choose %s. Grr... a tie!" % (bo)
 		print "Your score:%s Bot score:%s" %(human_score, bot_score)
-        elif (hu, bo) in winning_combos:
+        elif (hu, bo) in winning_combos:	# conditions for user win 
 		print 
                 print "You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo)
 		human_score += 1
 		print "Your score:%s Bot score:%s" %(human_score, bot_score)
-        else:
+        else:					# conditions for bot win 
                 print 
 		print "You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo)
 		bot_score += 1
 		print "Your score:%s Bot score:%s" %(human_score, bot_score)
 
-	game_over()	
+	game_over()				# conditions for game over 
 

@@ -3,13 +3,12 @@
 A text-based Python 2.7.6 implementation of the game Rock-Paper-Scissors.
 
 Game play:
-  
-	* user defines number of rounds for gameplay 
+ 
         * each round, both players select from: rock, paper, or scissors 
         * rock beats scissors, scissors beats paper, paper beats rock 
         * a player receives 1 point per round (s)he wins
         * 0 points for ties 
-        
+        * user defines number of rounds for gameplay 
 
 ## Usage 
 
