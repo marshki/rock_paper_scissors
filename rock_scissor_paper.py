@@ -36,21 +36,6 @@ Good luck!
 """
 
 # Define functions 
-
-def rounds(): 
-	""" Prompt user for number of rounds for gameplay, and catch invalid input.
-	"""
-	while True: 
-		print
-		rounds = raw_input("Type the number of rounds you want to play, and press enter: ")
-		try:
-			rounds = int(rounds) 
-			print "Cool! Let\'s play %d rounds of Rock-Paper-Scissors" %rounds
-			return rounds
-		except: 
-			print "Sorry, that\'s not a valid number. Please try again."
-()
-
 def human():		
 	""" Prompt user for input, and limit options to acceptable moves.  
 	"""
@@ -77,18 +62,30 @@ def bot():
 def game_over():	
 	""" Game over when either player scores five points. 
 	"""
-	if bot_score == 5: 
+	if bot_score == num_rounds: 
 		print 
 		print "The bot wins, you puny human. " 
 		sys.exit() 
-	elif human_score == 5: 
+	elif human_score == num_rounds: 
 		print
 		print "The puny human wins." 
 		sys.exit()
 ()
 
-# The program 
+# The program
+while True: 
+	print
+	num_rounds = raw_input("Type the number of rounds you want to play, and press enter: ")
+	try:
+		num_rounds = int(num_rounds) 
+		print "Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds
+		break 			
+	except: 
+		print "Sorry, that\'s not a valid number. Please try again."
+
+ 
 while True:	# While loop to compare output of players, decide on winner, and keep score 
+	
 	hu, bo  = human(), bot()
 	
 	if hu == "q":		# Allow user to quit at anytime
