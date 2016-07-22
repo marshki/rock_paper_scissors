@@ -8,7 +8,7 @@ Game play:
         * rock beats scissors, scissors beats paper, paper beats rock 
         * a player receives 1 point per round (s)he wins
         * 0 points for ties 
-        * first player to reach 5 points wins. 
+        * first player to win user designated number of rounds is the victor 
 """
 # Import libraries  
 import sys 
