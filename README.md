@@ -17,6 +17,11 @@ To run directly from a shell:
 
 Menu driven program. Each round player is prompted for input. Program determines victor, while keeping cumulative score. Game is over when one player wins user defined number of rounds first.    
 
+## Todo: 
+
+- [ ] Increase code efficiency. 
+- [ ] Add support for Python 3.  
+
 ## History 
 
 First commit May 9, 2016 @ 14:10 ET. 
