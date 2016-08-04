@@ -29,22 +29,16 @@ human_score, bot_score = 0, 0 				# Initialize player scores
 def rounds():
 	""" Prompt user for number of rounds to play"""
 	while True:
-
 		try: 
-	
 			num_rounds = int(raw_input("Type the number of rounds you want to play, and press enter: "))
 			print "Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds
 			return num_rounds 
-			
-	
 		except: 							
 			print "Sorry, that\'s not a valid number. Please try again."
-
 
 def human():		
 	""" Prompt user for input, and limit options to acceptable moves."""
 	while True:
-
 		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 	# Possible moves
 		human_move = raw_input("Enter your choice: ").lower()	# accept upper and lower variations of user input
 		
@@ -55,8 +49,7 @@ def human():
 
 
 def bot():	
-	""" Randomize bot's move. 
-	""" 
+	""" Randomize bot's move.""" 
 	bot_move = choice(moves)					# randomize the bot's move and return it
 	return bot_move
 
@@ -76,7 +69,6 @@ def program():
 	rounds()
 
 	while True:	# while loop to compare output of players, decide on winner, and keep score 
-	
 		hu, bo  = human(), bot()
 	
 		if hu == "q":				# Allow user to quit at anytime
@@ -85,10 +77,12 @@ def program():
 		if  hu == bo:				# conditions for a tie  
 			print "You both choose %s. Grr... a tie!" % (bo)
 			print "Your score:%s Bot score:%s" %(human_score, bot_score)
+
         	elif (hu, bo) in winning_combos:	# conditions for user win 
                 	print "You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo)
 			human_score += 1
 			print "Your score:%s Bot score:%s" %(human_score, bot_score)
+
         	else:					# conditions for bot win 
 			print "You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo)
 			bot_score += 1
