@@ -55,8 +55,7 @@ def bot():
 
 
 def game_over():	
-	""" Game over when either player wins user defined number of rounds first. 
-	"""
+	""" Game over when either player wins user defined number of rounds first."""
 	if bot_score == num_rounds: 					
 		print "The bot wins, you puny human. " 
 		sys.exit() 
@@ -64,43 +63,40 @@ def game_over():
 		print "The puny human wins." 
 		sys.exit()
 
-
-def program(): 
-	rounds()
-
-	while True:	# while loop to compare output of players, decide on winner, and keep score 
-		hu, bo  = human(), bot()
-	
-		if hu == "q":				# Allow user to quit at anytime
-			sys.exit(0) 
-
-		if  hu == bo:				# conditions for a tie  
-			print "You both choose %s. Grr... a tie!" % (bo)
-			print "Your score:%s Bot score:%s" %(human_score, bot_score)
-
-        	elif (hu, bo) in winning_combos:	# conditions for user win 
-                	print "You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo)
-			human_score += 1
-			print "Your score:%s Bot score:%s" %(human_score, bot_score)
-
-        	else:					# conditions for bot win 
-			print "You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo)
-			bot_score += 1
-			print "Your score:%s Bot score:%s" %(human_score, bot_score)
-
-	game_over()				# conditions for game over 
-
 print"""
 ********** Welcome to Rock-Paper-Scissors! **********
 
 See if you can beat the bot!
 
 Keep in mind:
-        * rock breaks scissors,  
-       	* scissors cut paper, 
-        * paper covers rock. 
+        * rock breaks scissors,
+        * scissors cut paper,
+        * paper covers rock.
 
 Good luck!
 """
-program()
+
+rounds()
+while True:	# while loop to compare output of players, decide on winner, and keep score 
+	hu, bo  = human(), bot()
+	
+	if hu == "q":				# Allow user to quit at anytime
+		sys.exit(0) 
+
+	if  hu == bo:				# conditions for a tie  
+		print "You both choose %s. Grr... a tie!" % (bo)
+		print "Your score:%s Bot score:%s" %(human_score, bot_score)
+
+        elif (hu, bo) in winning_combos:	# conditions for user win 
+               	print "You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo)
+		human_score += 1
+		print "Your score:%s Bot score:%s" %(human_score, bot_score)
+
+        else:					# conditions for bot win 
+		print "You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo)
+		bot_score += 1
+		print "Your score:%s Bot score:%s" %(human_score, bot_score)
+
+	game_over()					# conditions for game over 
+
 
