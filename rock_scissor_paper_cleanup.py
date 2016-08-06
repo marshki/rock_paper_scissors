@@ -13,8 +13,8 @@ Game play:
 
 # Import libraries  
 
-import sys 
-from random import choice 
+import sys						# work with runtime environment  
+from random import choice 				# randomize bot moves 
 
 # Declarations 
 
@@ -30,11 +30,12 @@ def rounds():
 	""" Prompt user for number of rounds to play"""
 	while True:
 		try: 
-			num_rounds = int(raw_input("Type the number of rounds you want to play, and press enter: "))
+			num_rounds = int(raw_input("Type the number of rounds you want to play, and press Enter: "))
 			print "Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds
 			return num_rounds 
 		except: 							
 			print "Sorry, that\'s not a valid number. Please try again."
+
 
 def human():		
 	""" Prompt user for input, and limit options to acceptable moves."""
@@ -50,18 +51,19 @@ def human():
 
 def bot():	
 	""" Randomize bot's move.""" 
-	bot_move = choice(moves)					# randomize the bot's move and return it
+	bot_move = choice(moves)					
 	return bot_move
 
 
 def game_over():	
 	""" Game over when either player wins user defined number of rounds first."""
-	if bot_score == num_rounds: 					
+	if bot_score == game_length: 								
 		print "The bot wins, you puny human. " 
 		sys.exit() 
-	elif human_score == num_rounds: 
+	elif human_score == game_length: 
 		print "The puny human wins." 
 		sys.exit()
+
 
 print"""
 ********** Welcome to Rock-Paper-Scissors! **********
@@ -76,7 +78,8 @@ Keep in mind:
 Good luck!
 """
 
-rounds()
+game_length = rounds()
+
 while True:	# while loop to compare output of players, decide on winner, and keep score 
 	hu, bo  = human(), bot()
 	
@@ -97,6 +100,6 @@ while True:	# while loop to compare output of players, decide on winner, and kee
 		bot_score += 1
 		print "Your score:%s Bot score:%s" %(human_score, bot_score)
 
-	game_over()					# conditions for game over 
+		game_over()					# conditions for game over 
 
 
