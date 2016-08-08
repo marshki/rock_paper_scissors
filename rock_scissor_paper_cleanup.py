@@ -1,6 +1,5 @@
 #!/bin/py 
 #Python 2.7.6
-
 """A text-based Python 2.7.6 implementation of the game Rock-Paper-Scissors.
 
 Game play:  
@@ -12,17 +11,15 @@ Game play:
 """
 
 # Import libraries  
-
 import sys						# work with runtime environment  
-from random import choice 				# randomize bot moves 
+from random import choice 				# to randomize bot moves 
 
 # Declarations 
-
 moves = ["r", "p", "s"] 				# Possible moves  
 
 winning_combos = {("r", "s"), ("s", "p"), ("p", "r")} 	# Winning outcomes 
 
-human_score, bot_score = 0, 0 				# Initialize player scores 
+human_score, bot_score = 0 , 0 				# Initialize player scores 
 
 # Define functions 
 
@@ -41,11 +38,11 @@ def human():
 	""" Prompt user for input, and limit options to acceptable moves."""
 	while True:
 		print "R: Rock    P: Paper    S: Scissor    Q: Quit" 	# Possible moves
-		human_move = raw_input("Enter your choice: ").lower()	# accept upper and lower variations of user input
+		human_move = raw_input("Enter your choice: ").lower()	# convert input to lower case variation
 		
-		if human_move in moves or human_move == "q": 		# if the move is acceptable, return it 
+		if human_move in moves or human_move == "q": 		# acceptable moves 
 			return human_move 
-		else: 							# else ask the user to try again
+		else: 										
 			print "Sorry, that\'s invalid input." 
 
 
@@ -64,7 +61,6 @@ def game_over():
 		print "The puny human wins." 
 		sys.exit()
 
-
 print"""
 ********** Welcome to Rock-Paper-Scissors! **********
 
@@ -78,28 +74,31 @@ Keep in mind:
 Good luck!
 """
 
-game_length = rounds()
+def gameplay(): 
 
-while True:	# while loop to compare output of players, decide on winner, and keep score 
-	hu, bo  = human(), bot()
+	game_length = rounds()
+		
+	while True:					# Compare output of players, decide on winner, and keep score 
+		
+		hu, bo  = human(), bot()
 	
-	if hu == "q":				# Allow user to quit at anytime
-		sys.exit(0) 
+		if hu == "q":				# Allow user to quit at anytime
+			sys.exit(0) 
 
-	if  hu == bo:				# conditions for a tie  
-		print "You both choose %s. Grr... a tie!" % (bo)
-		print "Your score:%s Bot score:%s" %(human_score, bot_score)
+		if  hu == bo:				# conditions for a tie  
+			print "You both choose %s. Grr... a tie!" % (bo)
+			print "Your score:%s Bot score:%s" %(human_score, bot_score)
 
-        elif (hu, bo) in winning_combos:	# conditions for user win 
-               	print "You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo)
-		human_score += 1
-		print "Your score:%s Bot score:%s" %(human_score, bot_score)
+        	elif (hu, bo) in winning_combos:	# conditions for user win 
+               		print "You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo)
+			human_score += 1
+			print "Your score:%s Bot score:%s" %(human_score, bot_score)
 
-        else:					# conditions for bot win 
-		print "You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo)
-		bot_score += 1
-		print "Your score:%s Bot score:%s" %(human_score, bot_score)
+        	else:					# conditions for bot win 
+			print "You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo)
+			bot_score += 1
+			print "Your score:%s Bot score:%s" %(human_score, bot_score)
 
-		game_over()					# conditions for game over 
+		game_over()			# conditions for game over 
 
-
+gameplay()
