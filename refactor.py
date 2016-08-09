@@ -83,21 +83,21 @@ def play():
 Good luck! 
 	""")
 
-    game_length = rounds()
-    scores = {'human':0, 'bot':0}
-    while True:
+    game_length = rounds()							# number of rounds 
+    scores = {'human':0, 'bot':0}						# initialize scores 
+    while True:							
         result = play_round()
-        if result == 'q':
+        if result == 'q':							# allow user to end game 
             break
 
-        scores[result] += 1
+        scores[result] += 1							# update score 
         print("Your score: {human}, Bot score: {bot}".format(**scores))
-        if scores['bot'] == game_length:
+        if scores['bot'] == game_length:					# bot wins == user defined number of rounds  
             print("The bot wins, you puny human. " )
             break
-        elif scores['human'] == game_length: 
+        elif scores['human'] == game_length: 					# human wins == user defined number of rounds 
             print("The puny human wins." )
             break
 
-if __name__ == '__main__':
+if __name__ == '__main__':							# let the games begin 
     play()
