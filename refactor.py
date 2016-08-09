@@ -1,10 +1,10 @@
-from __future__ import print_function
-from builtins import input
+from __future__ import print_function			
+from builtins import input				 
 
 #!/bin/py 
-#Python 2.7.6
+#Python 2 & 3 
 
-"""A text-based Python 2.7.6 implementation of the game Rock-Paper-Scissors.
+"""A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
 Game play:  
         * each round, both players select from: rock, paper, or scissors 
         * rock beats scissors, scissors beats paper, paper beats rock 
@@ -15,19 +15,13 @@ Game play:
 
 # Import libraries  
 
-# let's remove sys and see if we can't figure out a workflow not using it
-#import sys						# work with runtime environment  
-from random import choice 				# randomize bot moves 
+from random import choice 				# to randomize bot moves 
 
 # Declarations 
 
-# let's make these all caps to distinguish them from normal variables
 MOVES = ["r", "p", "s"] 				# Possible moves  
 
 WINNING_COMBOS = {("r", "s"), ("s", "p"), ("p", "r")} 	# Winning outcomes 
-
-# this next one is a different kind of thing, let's move it somewhere
-#human_score, bot_score = 0, 0 				# Initialize player scores 
 
 # Define functions 
 
@@ -36,11 +30,9 @@ def rounds():
 	while True:
 		try: 
 			num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
-			print("Cool! Let\'s play %d round(s) of Rock-Paper-Scissors."
-                    %num_rounds)
+			print("Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds)
 			return num_rounds 
-        # naked excepts are evil -- just catch what you want to catch,
-		except ValueError: 							
+        	except ValueError: 							
 			print ("Sorry, that\'s not a valid number. Please try again.")
 
 
@@ -53,7 +45,7 @@ def human():
 		
         if human_move in valid:
             return human_move 
-        else: 							# else ask the user to try again
+        else: 							
             print("Sorry, that\'s invalid input." )
 
 
@@ -64,9 +56,8 @@ def bot():
 
 
 def play_round():
-    '''play a single round and either return the winner's name of 'q' to
-    reture'''
-    while True:	# while loop to compare output of players, decide on winner, and keep score 
+    '''play a single round and either return the winner's name or 'q' to retire'''
+    while True:					# while loop to compare output of players, decide on winner, and keep score 
         hu, bo  = human(), bot()
         if hu == "q":				# Allow user to quit at anytime
             return hu
@@ -83,14 +74,14 @@ def play_round():
 
 def play():
     print("""
-    ********** Welcome to Rock-Paper-Scissors! **********
-    See if you can beat the bot!
-    Keep in mind:
-            * rock breaks scissors,
-            * scissors cut paper,
-            * paper covers rock.
-    Good luck!
-    """)
+********** Welcome to Rock-Paper-Scissors! **********
+ See if you can beat the bot!
+ Keep in mind:
+ 	* rock breaks scissors,
+        * scissors cut paper,
+        * paper covers rock.
+Good luck! 
+	""")
 
     game_length = rounds()
     scores = {'human':0, 'bot':0}
