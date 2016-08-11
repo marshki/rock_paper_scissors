@@ -22,7 +22,7 @@ Menu driven program. Each round player is prompted for input. Program determines
 ## History 
 First commit May 9, 2016 @ 14:10 ET. 
 
-Version 2.0 08.08.16 
+Version 2.0 August 8, 2016 
 
 ## License 
 [MIT license](https://opensource.org/licenses/MIT). 'Nuff said. 
