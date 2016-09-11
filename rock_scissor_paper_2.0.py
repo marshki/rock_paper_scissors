@@ -1,10 +1,11 @@
-from __future__ import print_function			
+from __future__ import print_function 			
 from builtins import input				 
 
 #!/bin/py 
 #Python 2 & 3 
 
-"""A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
+"""
+A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
 Game play:  
         * each round, both players select from: rock, paper, or scissors 
         * rock beats scissors, scissors beats paper, paper beats rock 
@@ -26,14 +27,14 @@ WINNING_COMBOS = {("r", "s"), ("s", "p"), ("p", "r")} 	# Winning outcomes
 # Define functions 
 
 def rounds():
-	""" Prompt user for number of rounds to play"""
-	while True:
-		try: 
-			num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
-			print("Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds)
-			return num_rounds 
-        	except ValueError: 							
-			print ("Sorry, that\'s not a valid number. Please try again.")
+    """ Prompt user for number of rounds to play"""
+    while True:
+        try: 
+            num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
+            print("Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds)
+            return num_rounds 
+        except ValueError: 							
+            print ("Sorry, that\'s not a valid number. Please try again.")
 
 
 def human():		
