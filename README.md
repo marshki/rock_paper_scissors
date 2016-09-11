@@ -18,6 +18,8 @@ Menu driven program. Each round player is prompted for input. Program determines
 ## Todo: 
 - [x] Increase code efficiency. 
 - [x] Add support for Python 3.  
+- [ ] Add unit test. 
+- [ ] Add support for Travis-CI and Landscape.io 
 
 ## History 
 First commit May 9, 2016 @ 14:10 ET. 
