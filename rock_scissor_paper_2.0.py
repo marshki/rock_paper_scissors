@@ -1,5 +1,5 @@
 from __future__ import print_function 
-from builtins import input				 
+from builtins import input               
 
 #!/bin/py 
 #Python 2 & 3 
@@ -33,26 +33,26 @@ def rounds():
             num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
             print("Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds)
             return num_rounds 
-        except ValueError: 							
-            print ("Sorry, that\'s not a valid number. Please try again.")
+        except ValueError:                          
+            print("Sorry, that\'s not a valid number. Please try again.")
 
 
-def human():		
+def human():        
     """ Prompt user for input, and limit options to acceptable moves."""
     valid = MOVES + ['q']
     while True:
         print ("R: Rock    P: Paper    S: Scissor    Q: Quit")
         human_move = input("Enter your choice: ").lower()
-		
+        
         if human_move in valid:
             return human_move 
-        else: 							
+        else:                           
             print("Sorry, that\'s invalid input." )
 
 
-def bot():	
+def bot():  
     """ Randomize bot's move.""" 
-    bot_move = choice(MOVES)					
+    bot_move = choice(MOVES)                    
     return bot_move
 
 
@@ -67,7 +67,7 @@ def play_round():
         elif (hu, bo) in WINNING_COMBOS:    # conditions for user win 
             print("You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo))
             return 'human'
-        else:					            # conditions for bot win 
+        else:                               # conditions for bot win 
             print("You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo))
             return 'bot'
 
@@ -78,15 +78,15 @@ def play():
 ********** Welcome to Rock-Paper-Scissors! **********
  See if you can beat the bot!
  Keep in mind:
- 	    * rock breaks scissors,
+        * rock breaks scissors,
         * scissors cut paper,
         * paper covers rock.
 Good luck! 
-	""")
+    """)
 
     game_length = rounds()                              # number of rounds 
     scores = {'human':0, 'bot':0}                       # initialize scores 
-    while True:							
+    while True:                         
         result = play_round()
         if result == 'q':                               # allow user to end game 
             break
@@ -96,7 +96,7 @@ Good luck!
         if scores['bot'] == game_length:                # bot wins == user defined number of rounds  
             print("The bot wins, you puny human. " )
             break
-        elif scores['human'] == game_length: 			# human wins == user defined number of rounds 
+        elif scores['human'] == game_length:            # human wins == user defined number of rounds 
             print("The puny human wins." )
             break
 
