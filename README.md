@@ -1,4 +1,7 @@
-# Rock-Scissor-Paper 
+# Rock-Scissor-Paper
+
+[![Code Health](https://landscape.io/github/marshki/rock_scissor_paper/master/landscape.svg?style=flat)](https://landscape.io/github/marshki/rock_scissor_paper/master)
+ 
 A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
 
 Game play:
@@ -19,7 +22,7 @@ Menu driven program. Each round player is prompted for input. Program determines
 - [x] Increase code efficiency. 
 - [x] Add support for Python 3.  
 - [ ] Add unit test. 
-- [ ] Add support for Travis-CI and Landscape.io 
+- [ ] Add support for Travis-CI and ~~Landscape.io~~
 
 ## History 
 First commit May 9, 2016 @ 14:10 ET. 
