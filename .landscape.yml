@@ -1,0 +1,5 @@
+doc-warnings: false 
+
+pylint: 
+    disable: 
+        - redefined-builtin # ignore error re: `input` 
