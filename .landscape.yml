@@ -1,5 +1,7 @@
 doc-warnings: false 
-
 pylint: 
     disable: 
         - redefined-builtin # ignore error re: `input` 
+python-targets: 
+    - 2
+    - 3 
