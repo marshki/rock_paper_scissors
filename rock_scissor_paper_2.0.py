@@ -4,8 +4,7 @@ from builtins import input
 #!/bin/py 
 #Python 2 & 3 
 
-""" 
-A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
+""" A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
 Game play:  
         * each round, both players select from: rock, paper, or scissors 
         * rock beats scissors, scissors beats paper, paper beats rock 
