@@ -1,9 +1,9 @@
-# Rock-Scissor-Paper
+# Rock-Paper-Scissors
 
 [![Code Health](https://landscape.io/github/marshki/rock_scissor_paper/master/landscape.svg?style=flat)](https://landscape.io/github/marshki/rock_scissor_paper/master)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
  
-A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
+A text-based Python 2 & 3 implementation of the game [Rock-Paper-Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors).
 
 Game play:
  
