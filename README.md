@@ -12,12 +12,19 @@ Run directly from a shell:
 `python rock_paper_scissors.py` or `python3 rock_paper_scissors.py` 
 
 Game play:
-	* Palyer defines number of rounds to play.  
-        * Each round, players select from: rock, paper, scissors.  
-        * Rock beats scissors, scissors beats paper, and paper beats rock. 
-        * Player receives 1 point per round (s)he wins. 
-        * 0 points are awarded for ties, and the round must be replayed until a winner is determined. 
-	* Program tracks cumulative points awarded. 
+
+	* Player defines number of rounds to play.
+  
+        * Each round, player selects from: rock, paper, scissors.
+  
+        * Rock beats scissors, scissors beats paper, and paper beats rock.
+ 
+        * Player receives 1 point per round won.
+ 
+        * 0 points are awarded for ties, and the round must be replayed until a winner is determined.
+ 
+	* Program tracks cumulative points awarded.
+ 
 	* First player to win defined number of rounds is the victor.   
 
 ## Todo: 
