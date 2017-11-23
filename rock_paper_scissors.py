@@ -1,16 +1,21 @@
 from __future__ import print_function 
 from builtins import input               
 
-#!/bin/py 
-#Python 2 & 3 
+#!/usr/bin/env python 
+# mjk 2016.05.09
 
-""" A text-based Python 2 & 3 implementation of the game Rock-Paper-Scissors.
+""" 
+A text-based implementation of Rock-Paper-Scissors in Python 2 & 3. 
+
 Game play:  
-        * each round, both players select from: rock, paper, or scissors 
-        * rock beats scissors, scissors beats paper, paper beats rock 
-        * a player receives 1 point per round (s)he wins
-        * 0 points for ties 
-        * first player to win user designated number of rounds is the victor """
+
+	* Player defines number of rounds to play. 
+	* Each round, player selects from: rock, paper, or scissors.  
+        * Rock beats scissors, scissors beats paper, paper beats rock. 
+        * Player receives 1 point per round won. 
+        * 0 points awarded for ties, and round must be replayed.  
+        * First player to win user defined number of rounds is the victor.  
+"""
 
 # Import libraries  
 
