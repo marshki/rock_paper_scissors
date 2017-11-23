@@ -11,7 +11,7 @@ A text-based implementation of the game [Rock-Paper-Scissors](https://en.wikiped
 Run directly from a shell: 
 `python rock_paper_scissors.py` or `python3 rock_paper_scissors.py` 
 
-Game play:
+**Game play:**
 
 * Player defines number of rounds to play.
   
