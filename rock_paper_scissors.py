@@ -17,14 +17,12 @@ Game play:
 * First player to win user defined number of rounds is the victor.
 """
 
-# To ramdomize "bot" moves
-from random import choice
+from random import choice                                           # To ramdomize "bot" moves
 
-# Possible moves
-MOVES = ["r", "p", "s"]
-
-# Winning scenarios
-WINNING_COMBOS = {("r", "s"), ("p", "r"), ("s", "p")}
+# Globals
+MOVES = ["r", "p", "s"]                                             # Possible moves
+WINNING_COMBOS = {("r", "s"), ("p", "r"), ("s", "p")}               # Winning scenarios
+SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissor    Q: Quit"   # Display to user
 
 # Functions
 def rounds():
@@ -33,17 +31,20 @@ def rounds():
     while True:
         try:
             num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
-            print("Cool! Let\'s play %d round(s) of Rock-Paper-Scissors." %num_rounds)
+            # Do we need this:
+            # print ("Cool! Let\'s play {} round(s) of Rock-Paper-Scissors.".format(num_rounds))
             return num_rounds
         except ValueError:
             print("Sorry, that\'s not a valid number. Please try again.")
 
+'''
 def human():
     """Prompt user for input, and limit options to acceptable moves."""
 
     valid = MOVES + ['q']
     while True:
-        print ("R: Rock    P: Paper    S: Scissor    Q: Quit")
+        # Can we move this:
+        # print ("R: Rock    P: Paper    S: Scissor    Q: Quit")
         human_move = input("Enter your choice: ").lower()
 
         if human_move in valid:
@@ -104,3 +105,4 @@ Good luck!
 
 if __name__ == '__main__':                              # let the games begin
     play()
+'''
