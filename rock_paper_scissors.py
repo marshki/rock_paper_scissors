@@ -19,46 +19,40 @@ Game play:
 
 from random import choice                                           # To ramdomize "bot" moves
 
-# Globals
 MOVES = ["r", "p", "s"]                                             # Possible moves
 WINNING_COMBOS = {("r", "s"), ("p", "r"), ("s", "p")}               # Winning scenarios
 SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissor    Q: Quit"   # Display to user
 
-# Functions
 def rounds():
-    """Prompt user for number of rounds to play"""
-
+    """Prompt user for rounds of play"""
     while True:
         try:
             num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
-            # Do we need this:
-            # print ("Cool! Let\'s play {} round(s) of Rock-Paper-Scissors.".format(num_rounds))
             return num_rounds
-        except ValueError:
-            print("Sorry, that\'s not a valid number. Please try again.")
 
-'''
+            print ("Let\'s play {} round(s) of Rock-Paper-Scissors!".format(num_rounds))    ###Can we place this elsewhere?###
+
+        except ValueError:
+            print("Sorry, that\'s invalid input. Please try again.")
+
 def human():
     """Prompt user for input, and limit options to acceptable moves."""
-
-    valid = MOVES + ['q']
+    valid_input = MOVES + ['q']
     while True:
-        # Can we move this:
-        # print ("R: Rock    P: Paper    S: Scissor    Q: Quit")
+
+        print(SHOW_VALID_MOVES)                                                             ###Can we places this elsewhere?###
+
         human_move = input("Enter your choice: ").lower()
 
-        if human_move in valid:
+        if human_move in valid_input:
             return human_move
         else:
             print("Sorry, that\'s invalid input." )
 
-
 def bot():
     """Randomize bot's move."""
-
     bot_move = choice(MOVES)
     return bot_move
-
 
 def play_round():
     """Play a single round and either return the winner's name or 'q' to retire"""
@@ -76,6 +70,12 @@ def play_round():
             print("You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo))
             return 'bot'
 
+rounds()
+human()
+bot()
+play_round()
+
+'''
 def play():
     print("""
 ********** Welcome to Rock-Paper-Scissors! **********
