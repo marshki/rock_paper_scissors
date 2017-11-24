@@ -27,55 +27,53 @@ def rounds():
     """Prompt user for rounds of play"""
     while True:
         try:
-            num_rounds = int(input("Type the number of rounds you want to play, and press Enter: "))
+            num_rounds = int(input("Type the number of rounds to play and press Enter: "))
             return num_rounds
 
             print ("Let\'s play {} round(s) of Rock-Paper-Scissors!".format(num_rounds))    ###Can we place this elsewhere?###
 
         except ValueError:
-            print("Sorry, that\'s invalid input. Please try again.")
+            print("Sorry, that\'s invalid input. Try again: ")
 
-def human():
+def player1():
     """Prompt user for input, and limit options to acceptable moves."""
     valid_input = MOVES + ['q']
     while True:
 
         print(SHOW_VALID_MOVES)                                                             ###Can we places this elsewhere?###
 
-        human_move = input("Enter your choice: ").lower()
+        player1_move = input("Enter your choice: ").lower()
 
-        if human_move in valid_input:
-            return human_move
+        if player1_move in valid_input:
+            return player1_move
         else:
-            print("Sorry, that\'s invalid input." )
+            print("Sorry, that\'s invalid input. Try again: " )
 
-def bot():
+def player2():
     """Randomize bot's move."""
-    bot_move = choice(MOVES)
-    return bot_move
+    player2_move = choice(MOVES)
+    return player2_move
 
 def play_round():
     """Play a single round and either return the winner's name or 'q' to retire"""
 
     while True:                             # while loop to compare output of players, decide on winner, and keep score
-        hu, bo  = human(), bot()
-        if hu == "q":                       # Allow user to quit at anytime
-            return hu
-        if  hu == bo:                       # conditions for a tie
-            print("You both choose %s. Grr... a tie!" % (bo))
-        elif (hu, bo) in WINNING_COMBOS:    # conditions for user win
-            print("You picked %s and the bot picked %s. Woo-hoo! You win this one, human." %(hu, bo))
+        human, bot  = player1(), player2()
+
+        if human == "q":                       # Allow user to quit at anytime
+            return human
+
+        if  human == bot:                       # conditions for a tie
+            print("You both chose {}. Grr... a tie!".format(bot))
+
+        elif (human, bot) in WINNING_COMBOS:    # conditions for user win
+            print("You picked {} and the bot picked {}. Woo-hoo! You win this one, human.".format(human, bot))
             return 'human'
+
         else:                               # conditions for bot win
-            print("You picked %s and the bot picked %s. Bwahahaha! The almighty bot wins!" %(hu, bo))
+            print("You picked {} and the bot picked {}. Bwahahaha! The almighty bot wins!".format(human, bot))
             return 'bot'
 
-rounds()
-human()
-bot()
-play_round()
-
-'''
 def play():
     print("""
 ********** Welcome to Rock-Paper-Scissors! **********
