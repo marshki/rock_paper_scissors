@@ -7,7 +7,6 @@ from builtins import input
 """
 A text-based implementation of Rock-Paper-Scissors in Python 2 & 3.
 
-* Player defines number of rounds to play.
 * Rock beats scissors, scissors beats paper, paper beats rock.
 * Player receives 1 point per round won. 0 points awarded for ties, and round must be replayed.
 * First player to win user defined number of rounds is the victor.
@@ -23,10 +22,9 @@ def rounds():
     """Prompt user for rounds of play"""
     while True:
         try:
-            num_rounds = int(input("Type the number of rounds to play and press Enter: "))
+            num_rounds = int(input("Type the number of rounds to play and press enter: "))
+            print ("O.K. Let\'s play {} round(s)".format(num_rounds))
             return num_rounds
-
-            print ("Let\'s play {} round(s) of Rock-Paper-Scissors!".format(num_rounds))
 
         except ValueError:
             print("Sorry, that\'s invalid input. Try again: ")
@@ -36,6 +34,7 @@ def player1():
     valid_input = MOVES + ['q']
     while True:
 
+        print()
         print(SHOW_VALID_MOVES)
 
         player1_move = input("Enter your choice: ").lower()
@@ -60,14 +59,14 @@ def play_round():
             return human
 
         if  human == bot:                           # conditions for a tie
-            print("You both chose {}. Grr... a tie!".format(bot))
+            print("\nYou both chose {}. Grr... a tie!".format(bot))
 
         elif (human, bot) in WINNING_COMBOS:        # conditions for user win
-            print("You picked {} and the bot picked {}. Woo-hoo! You win this one, human.".format(human, bot))
+            print("\nYou picked {} and the bot picked {}. Woo-hoo! You win this one, human.".format(human, bot))
             return 'human'
 
         else:                                       # conditions for bot win
-            print("You picked {} and the bot picked {}. Bwahahaha! The almighty bot wins!".format(human, bot))
+            print("\nYou picked {} and the bot picked {}. Bwahahaha! The almighty bot wins!".format(human, bot))
             return 'bot'
 
 def play():
@@ -84,17 +83,17 @@ def play():
         print("Your score: {human}, Bot score: {bot}".format(**scores))
 
         if scores['bot'] == game_length:            # bot wins == user defined number of rounds
-            print("The bot wins, you puny human. " )
+            print("\nThe bot wins, you puny human. " )
             break
 
         elif scores['human'] == game_length:        # human wins == user defined number of rounds
-            print("The puny human wins." )
+            print("\nThe puny human wins." )
             break
 
 if __name__ == '__main__':
 
     print("""
-********** Welcome to Rock-Paper-Scissors! **********
+********** Welcome to Rock-Paper-Scissors **********
 See if you can beat the bot!
 Keep in mind:
 * rock breaks scissors,
