@@ -1,3 +1,7 @@
+from __future__ import print_function
+from builtins import input
+
+
 #!/usr/bin/env python
 
 from random import choice
