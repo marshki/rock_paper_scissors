@@ -1,29 +1,29 @@
+#!/usr/bin/env python
+
+"""A text-based implementation of Rock-Paper-Scissors in Python 2 & 3.
+For reference:
+  - rock beats scissors
+  - scissors beats paper
+  - paper beats rock.
+
+One (1) point awared for each round won.
+Zero (0) points awarded for tie, and round must be replayed.
+"""
+
 from __future__ import print_function
 from builtins import input
+from random import choice
 
-#!/usr/bin/env python
-# mjk 2016.05.09
-
-"""
-A text-based implementation of Rock-Paper-Scissors in Python 2 & 3.
-
-* Rock beats scissors, scissors beats paper, paper beats rock.
-* Player receives 1 point per round won. 0 points awarded for ties, and round must be replayed.
-* First player to win user defined number of rounds is the victor.
-"""
-
-from random import choice                                            # randomize "bot" moves
-
-MOVES = ["r", "p", "s"]                                              # possible moves
-WINNING_COMBOS = {("r", "s"), ("p", "r"), ("s", "p")}                # winning scenarios
-SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"   # display to player1
+MOVES = ["r", "p", "s"]
+WINNING_COMBOS = [("r", "s"), ("p", "r"), ("s", "p")]
+SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit" 
 
 def rounds():
     """Prompt user for rounds of play"""
     while True:
         try:
             num_rounds = int(input("Type the number of rounds to play and press enter: "))
-            print ("O.K. Let\'s play {} round(s)".format(num_rounds))
+            print("O.K. Let\'s play {} round(s)".format(num_rounds))
             return num_rounds
 
         except ValueError:
@@ -42,7 +42,7 @@ def player1():
         if player1_move in valid_input:
             return player1_move
         else:
-            print("Sorry, that\'s invalid input. Try again: " )
+            print("Sorry, that\'s invalid input. Try again: ")
 
 def player2():
     """Randomize bot's move."""
@@ -52,13 +52,16 @@ def player2():
 def play_round():
     """Play a single round and return outcome, or quit"""
 
-    while True:                                     # while loop to compare output of players, decide on winner, and keep score
-        human, bot  = player1(), player2()
+    while True:
+        # while loop to compare output of players, decide on winner, and keep score
+        human, bot = player1(), player2()
 
-        if human == "q":                            # allow user to quit at anytime
+        if human == "q":
+            # allow user to quit at anytime
             return human
 
-        if  human == bot:                           # conditions for a tie
+        if  human == bot:
+            # conditions for a tie
             print("\nYou both chose {}. Grr... a tie!".format(bot))
 
         elif (human, bot) in WINNING_COMBOS:        # conditions for user win
@@ -70,6 +73,8 @@ def play_round():
             return 'bot'
 
 def play():
+    """Placeholder.
+    """
 
     game_length = rounds()                          # number of rounds
     scores = {'human':0, 'bot':0}                   # initialize score
@@ -83,11 +88,11 @@ def play():
         print("Your score: {human}, Bot score: {bot}".format(**scores))
 
         if scores['bot'] == game_length:            # bot wins == user defined number of rounds
-            print("\nThe bot wins, you puny human. " )
+            print("\nThe bot wins, you puny human. ")
             break
 
         elif scores['human'] == game_length:        # human wins == user defined number of rounds
-            print("\nThe puny human wins." )
+            print("\nThe puny human wins.")
             break
 
 if __name__ == '__main__':
