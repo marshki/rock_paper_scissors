@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 
 """A text-based implementation of Rock-Paper-Scissors in Python 2 & 3.
-For reference:
-  - rock beats scissors
-  - scissors beats paper
-  - paper beats rock.
-
-One (1) point awared for each round won.
-Zero (0) points awarded for tie, and round must be replayed.
 """
 
 from __future__ import print_function
@@ -16,10 +9,12 @@ from random import choice
 
 MOVES = ["r", "p", "s"]
 WINNING_COMBOS = [("r", "s"), ("p", "r"), ("s", "p")]
-SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit" 
+SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"
 
 def rounds():
-    """Prompt user for rounds of play"""
+    """Prompt user.
+    Return number of rounds as int.
+    """
     while True:
         try:
             num_rounds = int(input("Type the number of rounds to play and press enter: "))
@@ -30,8 +25,11 @@ def rounds():
             print("Sorry, that\'s invalid input. Try again: ")
 
 def player1():
-    """Prompt user for input, and limit options to acceptable moves."""
+    """Prompt user for input and evaluate.
+    Return move if in acceptable moves ('r', 'p', 's', 'q').
+    """
     valid_input = MOVES + ['q']
+
     while True:
 
         print()
@@ -41,57 +39,67 @@ def player1():
 
         if player1_move in valid_input:
             return player1_move
-        else:
+
+        else: 
             print("Sorry, that\'s invalid input. Try again: ")
 
 def player2():
-    """Randomize bot's move."""
+    """Randomize bot's move.
+    Return move.
+    """
     player2_move = choice(MOVES)
+
     return player2_move
 
 def play_round():
-    """Play a single round and return outcome, or quit"""
+    """Evaluate human and bot move to determine win or tie.
+    Return 'human' or 'bot' move if winner, else replay.
+    For reference:
+      - rock beats scissors
+      - scissors beats paper
+      - paper beats rock.
+    """
 
     while True:
-        # while loop to compare output of players, decide on winner, and keep score
         human, bot = player1(), player2()
 
         if human == "q":
-            # allow user to quit at anytime
             return human
 
         if  human == bot:
-            # conditions for a tie
             print("\nYou both chose {}. Grr... a tie!".format(bot))
 
-        elif (human, bot) in WINNING_COMBOS:        # conditions for user win
-            print("\nYou picked {} and the bot picked {}. Woo-hoo! You win this one, human.".format(human, bot))
+        elif (human, bot) in WINNING_COMBOS:
+            print("You picked {} and the bot picked {}."
+                  "Woo-hoo! You win this one, human.".format(human, bot))
             return 'human'
 
-        else:                                       # conditions for bot win
-            print("\nYou picked {} and the bot picked {}. Bwahahaha! The almighty bot wins!".format(human, bot))
+        else:
+            print("You picked {} and the bot picked {}."
+                  "Bwahahaha! The almighty bot wins!".format(human, bot))
             return 'bot'
 
 def play():
-    """Placeholder.
+    """Game play.
+    Evaluate length of game, and track score.
     """
 
-    game_length = rounds()                          # number of rounds
-    scores = {'human':0, 'bot':0}                   # initialize score
+    game_length = rounds()
+    scores = {'human':0, 'bot':0}
 
     while True:
         result = play_round()
-        if result == 'q':                           # allow user to end game
+        if result == 'q':
             break
 
-        scores[result] += 1                         # update score
+        scores[result] += 1
         print("Your score: {human}, Bot score: {bot}".format(**scores))
 
-        if scores['bot'] == game_length:            # bot wins == user defined number of rounds
+        if scores['bot'] == game_length:
             print("\nThe bot wins, you puny human. ")
             break
 
-        elif scores['human'] == game_length:        # human wins == user defined number of rounds
+        elif scores['human'] == game_length:
             print("\nThe puny human wins.")
             break
 
