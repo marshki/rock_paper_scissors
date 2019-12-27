@@ -37,11 +37,11 @@ def player1():
 
         player1_move = input("Enter your choice: ").lower()
 
-        if player1_move in valid_input:
-            return player1_move
+        if player1_move not in valid_input:
+            print("Sorry, that\'s invalid input. Try again: ")
 
         else:
-            print("Sorry, that\'s invalid input. Try again: ")
+            return player1_move
 
 def player2():
     """Randomize bot's move.
