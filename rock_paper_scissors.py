@@ -13,7 +13,7 @@ SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"
 
 def rounds():
     """Prompt user.
-    Return number of rounds as int.
+    Return number of rounds as integer.
     """
     while True:
         try:
@@ -40,7 +40,7 @@ def player1():
         if player1_move in valid_input:
             return player1_move
 
-        else: 
+        else:
             print("Sorry, that\'s invalid input. Try again: ")
 
 def player2():
@@ -70,13 +70,13 @@ def play_round():
             print("\nYou both chose {}. Grr... a tie!".format(bot))
 
         elif (human, bot) in WINNING_COMBOS:
-            print("You picked {} and the bot picked {}."
-                  "Woo-hoo! You win this one, human.".format(human, bot))
+            print("\nYou picked {} and the bot picked {}.".format(human, bot),
+                  "\nWoo-hoo! You win this one, human.")
             return 'human'
 
         else:
-            print("You picked {} and the bot picked {}."
-                  "Bwahahaha! The almighty bot wins!".format(human, bot))
+            print("\nYou picked {} and the bot picked {}.".format(human, bot),
+                  "\nBwahahaha! The almighty bot wins!")
             return 'bot'
 
 def play():
