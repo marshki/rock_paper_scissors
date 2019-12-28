@@ -1,14 +1,15 @@
-from __future__ import print_function
-from builtins import input 
+#!/usr/bin/env python
 
-#!/usr/bin/env python 
+"""Unit test suite.
+"""
 
-MOVES = ["r", "p", "s"] 
-SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit" 
+MOVES = ["r", "p", "s"]
+SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"
 
 def player1():
     """Prompt user for input, and limit options to acceptable moves."""
     valid_input = MOVES + ['q']
+
     while True:
 
         print()
@@ -16,10 +17,11 @@ def player1():
 
         player1_move = input("Enter your choice: ").lower()
 
-        if player1_move in valid_input:
-            return player1_move
+        if player1_move not in valid_input:
+            print("Sorry, that\'s invalid input. Try again: ")
+
         else:
-            print("Sorry, that\'s invalid input. Try again: " ) 
+            return player1_move
 
 if __name__ == '__main__':
-	player1()
+    player1()
