@@ -37,11 +37,11 @@ class Player1(unittest.TestCase):
         """
         self.assertIn(player1(), ['valid_input'])
 
-    @patch('builtins.input', return_value='x')
+    @patch('builtins.input', return_value='q')
     def test_player1_02(self, input):
         """Valid return value.
         """
-        self.assertNotIn(player1(), 'valid_input')
+        self.assertIn(player1(), 'valid_input')
 
 if __name__ == '__main__':
     unittest.main()
