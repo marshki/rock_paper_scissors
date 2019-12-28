@@ -35,13 +35,13 @@ class Player1(unittest.TestCase):
     def test_player1_01(self, input):
         """Valid return value.
         """
-        self.assertIn(player1(), ['valid_input'])
+        self.assertIn(player1(), ['r', 'p', 's', 'q'])
 
     @patch('builtins.input', return_value='q')
     def test_player1_02(self, input):
         """Valid return value.
         """
-        self.assertIn(player1(), 'valid_input')
+        self.assertIn(player1(), ['r', 'p', 's', 'q'])
 
 if __name__ == '__main__':
     unittest.main()
