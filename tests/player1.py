@@ -1,19 +1,21 @@
 #!/usr/bin/env python
+# pylint: disable=W0613,W0622
 
-"""Unit test suite.
+"""Unit testing class.
 """
 
+import unittest
+from unittest.mock import patch
+
 MOVES = ["r", "p", "s"]
-SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"
 
 def player1():
-    """Prompt user for input, and limit options to acceptable moves."""
+    """Prompt user for input, and limit options to acceptable moves.
+    """
+
     valid_input = MOVES + ['q']
 
     while True:
-
-        print()
-        print(SHOW_VALID_MOVES)
 
         player1_move = input("Enter your choice: ").lower()
 
@@ -23,5 +25,23 @@ def player1():
         else:
             return player1_move
 
+class Player1(unittest.TestCase):
+    """Unit tests.
+    Use `patch()` to mock objects for testing.
+    For reference: https://docs.python.org/3/library/unittest.mock.html
+    """
+
+    @patch('builtins.input', return_value='r')
+    def test_player1_01(self, input):
+        """Valid return value.
+        """
+        self.assertIn(player1(), ['valid_input'])
+
+    @patch('builtins.input', return_value='x')
+    def test_player1_02(self, input):
+        """Valid return value.
+        """
+        self.assertNotIn(player1(), 'valid_input')
+
 if __name__ == '__main__':
-    player1()
+    unittest.main()
