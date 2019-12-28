@@ -1,32 +1,35 @@
-from __future__ import print_function
-from builtins import input
-
 #!/usr/bin/env python
 
-"""
-A text-based implementation of Rock-Paper-Scissors in Python 2 & 3.
+"""Unit testing class.
 """
 
-from random import choice                                            # randomize "bot" moves
+from __future__ import print_function
+from builtins import input
+from random import choice
 
-MOVES = ["r", "p", "s"]                                              # possible moves
-WINNING_COMBOS = {("r", "s"), ("p", "r"), ("s", "p")}                # winning scenarios
-SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"   # display to player1
+MOVES = ["r", "p", "s"]
+WINNING_COMBOS = [("r", "s"), ("p", "r"), ("s", "p")]
+SHOW_VALID_MOVES = "R: Rock    P: Paper    S: Scissors    Q: Quit"
 
 def rounds():
-    """Prompt user for rounds of play"""
+    """Prompt user.
+    Return number of rounds as integer.
+    """
     while True:
         try:
             num_rounds = int(input("Type the number of rounds to play and press enter: "))
-            print ("O.K. Let\'s play {} round(s)".format(num_rounds))
+            print("O.K. Let\'s play {} round(s)".format(num_rounds))
             return num_rounds
 
         except ValueError:
             print("Sorry, that\'s invalid input. Try again: ")
 
 def player1():
-    """Prompt user for input, and limit options to acceptable moves."""
+    """Prompt user for input and evaluate.
+    Return move if in acceptable moves ('r', 'p', 's', 'q')
+    """
     valid_input = MOVES + ['q']
+
     while True:
 
         print()
@@ -34,35 +37,42 @@ def player1():
 
         player1_move = input("Enter your choice: ").lower()
 
-        if player1_move in valid_input:
-            return player1_move
+        if player1_move not in valid_input:
+            print("Sorry, that\'s invalid input. Try again: ")
         else:
-            print("Sorry, that\'s invalid input. Try again: " )
+            return player1_move
 
 def player2():
-    """Randomize bot's move."""
+    """Randomize bot's move.
+    Return move.
+    """
     player2_move = choice(MOVES)
+
     return player2_move
-
+"""
 def play_round():
-    """Play a single round and return outcome, or quit"""
+    Evalute human and bot move to determine win or tie.
+    Return 'human' or 'bot' move if winner, else replay.
 
-    while True:                                     # while loop to compare output of players, decide on winner, and keep score
+    while True:
         human, bot  = player1(), player2()
 
-        if human == "q":                            # allow user to quit at anytime
+        if human == "q":
             return human
 
-        if  human == bot:                           # conditions for a tie
+        if  human == bot:            
             print("\nYou both chose {}. Grr... a tie!".format(bot))
 
-        elif (human, bot) in WINNING_COMBOS:        # conditions for user win
-            print("\nYou picked {} and the bot picked {}. Woo-hoo! You win this one, human.".format(human, bot))
+        elif (human, bot) in WINNING_COMBOS:
+            print("\nYou picked {} and the bot picked {}.".format(human, bot), 
+                  "\nWoo-hoo! You win this one, human.")
             return 'human'
 
-        else:                                       # conditions for bot win
-            print("\nYou picked {} and the bot picked {}. Bwahahaha! The almighty bot wins!".format(human, bot))
+        else
+            print("\nYou picked {} and the bot picked {}.".format(human, bot), 
+                  "\nBwahahaha! The almighty bot wins!")            
             return 'bot'
 
 if __name__ == '__main__':
-	play_round()
+play_round()
+"""
