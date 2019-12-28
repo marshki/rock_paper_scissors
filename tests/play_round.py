@@ -49,30 +49,35 @@ def player2():
     player2_move = choice(MOVES)
 
     return player2_move
-"""
+
+
 def play_round():
-    Evalute human and bot move to determine win or tie.
+    """Evaluate human and bot move to determine win or tie.
     Return 'human' or 'bot' move if winner, else replay.
+    For reference:
+      - rock beats scissors
+      - scissors beats paper
+      - paper beats rock.
+    """
 
     while True:
-        human, bot  = player1(), player2()
+        human, bot = player1(), player2()
 
         if human == "q":
             return human
 
-        if  human == bot:            
+        if  human == bot:
             print("\nYou both chose {}. Grr... a tie!".format(bot))
 
         elif (human, bot) in WINNING_COMBOS:
-            print("\nYou picked {} and the bot picked {}.".format(human, bot), 
+            print("\nYou picked {} and the bot picked {}.".format(human, bot),
                   "\nWoo-hoo! You win this one, human.")
             return 'human'
 
-        else
-            print("\nYou picked {} and the bot picked {}.".format(human, bot), 
-                  "\nBwahahaha! The almighty bot wins!")            
+        else:
+            print("\nYou picked {} and the bot picked {}.".format(human, bot),
+                  "\nBwahahaha! The almighty bot wins!")
             return 'bot'
 
-if __name__ == '__main__':
-play_round()
-"""
+#if __name__ == '__main__':
+#play_round()
