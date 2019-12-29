@@ -10,9 +10,6 @@ from unittest.mock import patch
 
 WINNING_COMBOS = [("r", "s"), ("p", "r"), ("s", "p")]
 
-human = 'r'
-bot = 's'
-
 def play_round():
     """Evaluate human and bot move to determine win or tie.
     Return 'human' or 'bot' move if winner, else replay.
@@ -23,7 +20,7 @@ def play_round():
     """
 
     while True:
-        # human, bot = player1(), player2()
+        human, bot = player1(), player2()
 
         if human == "q":
             return human
@@ -52,7 +49,5 @@ class PlayRounds(unittest.TestCase):
         """Valid return value.
         """
        
-
-
 if __name__ == '__main__':
     play_round()
