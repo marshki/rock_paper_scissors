@@ -12,25 +12,25 @@ Run directly from a shell:
 
 **Game play:**
 
-  * Player defines number of rounds to play.
+* Player defines number of rounds to play.
 
-  * Each round, player selects from: rock, paper, scissors.
+* Each round, player selects from: rock, paper, scissors.
 
-  * Rock beats scissors, scissors beats paper, and paper beats rock.
+* Rock beats scissors, scissors beats paper, and paper beats rock.
 
-  * Player receives 1 point per round won.
+* Player receives 1 point per round won.
 
-  * 0 points are awarded for ties, and the round must be replayed until a winner is determined.
+* 0 points are awarded for ties, and the round must be replayed until a winner is determined.
 
-  * Program tracks cumulative points awarded.
+* Program tracks cumulative points awarded.
 
-  * First player to win defined number of rounds is the victor.   
+* First player to win defined number of rounds is the victor.   
 
 ## Todo
-  - [x] Increase code efficiency.
-  - [x] Add support for Python 3.  
-  - [ ] Add unit test.
-  - [ ] Add support for Travis-CI and ~~Landscape.io~~
+- [x] Increase code efficiency.
+- [x] Add support for Python 3.  
+- [ ] Add unit test.
+- [ ] Add support for Travis-CI and ~~Landscape.io~~
 
 ## History
 First commit May 9, 2016 @ 14:10 ET.
