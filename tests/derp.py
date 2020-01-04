@@ -1,18 +1,17 @@
 """Placeholder.
 """
 
-HUMAN_MOVE = ['r', 'p', 's', 's', 's', 'r', 'p']
-BOT_MOVE = ['s', 'r', 'p', 's', 'r', 'p', 's']
+HUMAN_MOVE = ['r', 'p', 's', 's', 's', 'r', 'p', 'r', 's']
+BOT_MOVE = ['s', 'r', 'p', 's', 'r', 'p', 's', 's', 'p']
 ROUND = zip(HUMAN_MOVE, BOT_MOVE)
 
 WINNING_COMBOS = [('r', 's'), ('p', 'r'), ('s', 'p')]
 RESULT = []
 
 for _i in ROUND:
-    print(_i)
     if _i in WINNING_COMBOS:
-        RESULT.append('True')
+        RESULT.append(bool(_i))
     else:
-        RESULT.append('False')
+        RESULT.append(bool())
 
 print(RESULT)
