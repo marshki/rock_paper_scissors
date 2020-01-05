@@ -35,7 +35,7 @@ From a shell:
     python rock_paper_scissors.py
     python3 rock_paper_scissors.py
 
-*Game play:*
+Game play:
 
 - Player defines number of rounds needed to win.
 - Player selects from: "rock" (r), "paper" (p), or "scissors" (s).
@@ -49,8 +49,8 @@ Change Log
 ----------
 CHANGELOG_
 
-.. _CHANGELOG: https://
-
+.. _CHANGELOG: https://github.com/marshki/rock_paper_scissors/blob/master/CHANGELOG.rst
+ 
 License
 -------
 LICENSE_
