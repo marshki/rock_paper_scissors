@@ -38,7 +38,7 @@ From a shell:
 Game play:
 
 - Player defines number of rounds needed to win.
-- Player selects from: "rock" (r), "paper" (p), or "scissors" (s).
+- Player selects from: "rock" (r), "paper" (p), "scissors" (s), "quit" (q).
 - Player's move is evaluated against randomized move from bot.
 - Rock beats scissors, scissors beat paper, and paper beats rock.
 - One (1) point is awarded to round's winner.
