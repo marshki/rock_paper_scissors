@@ -2,8 +2,9 @@
 
 """Unit testing class.
 """
+import unittest
 
-GAME_LENGTH = 3 
+GAME_LENGTH = 3
 SCORES = {'human':0, 'bot':0}
 
 RESULT = ('bot')
@@ -11,7 +12,6 @@ RESULT = ('bot')
 def play():
     """Placeholder.
     """
-
     while True:
         SCORES[RESULT] += 1
         print("Your score: {human}, Bot score: {bot}".format(**SCORES))
@@ -23,15 +23,14 @@ def play():
         elif SCORES['human'] == GAME_LENGTH:
             print("\nThe puny human wins.")
             break
-play()
 
-"""There are two items that need to be tested:
-- does the score counter work? (yes)
-- does the game end when it should? (yes, but we need should run a simulation of the while loop)
+#class Play(unitest.TestCase):
+    """Unit test.
+    """
 
-class_Play(unitest.TestCase):
-    Unit test.
+    #def test_play(self, input):
+        """Placeholder.
+        """
 
-    def test_play():
-        Placeholder.
-"""
+if __name__ == '__main__':
+    unittest.main()
