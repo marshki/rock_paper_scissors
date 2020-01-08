@@ -1,17 +1,21 @@
-#from nose.tools import *
-from unittest import mock
-from unittest.mock import patch
-import io
 import unittest
+from unittest import mock
 
-def foo():
-    """Foo.
-    """
-    print("Something")
-    
-@patch('sys.stdout', new_callable=io.StringIO)
-def test_foo_one(mock_stdout):
-    foo()
-    assert mock_stdout.getvalue() == 'Something\n'
+def yes_or_no():
+    answer = input("Do you want to quit? > ")
+    if answer == "yes":
+        return("Quitter!")
+    elif answer == "no":
+        return("Awesome!")
+    else:
+        return("BANG!")
 
-test_foo_one()
+def test_quitting():
+
+    with mock.patch('builtins.input', return_value="yes"):
+        assert yes_or_no() == "Quitter!"
+
+    with mock.patch('builtins.input', return_value="no"):
+        assert yes_or_no() == "Awesome!"
+
+test_quitting()
