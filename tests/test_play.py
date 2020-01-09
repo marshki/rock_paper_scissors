@@ -12,7 +12,7 @@ SCORES = {'human':0, 'bot':0}
 RESULT = ('bot')
 
 def play():
-    """Placeholder.
+    """Simulate three rounds of play.
     """
     while True:
         SCORES[RESULT] += 1
