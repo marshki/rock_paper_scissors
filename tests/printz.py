@@ -1,8 +1,10 @@
+# pylint: disable=W0613,W0622
+
 """Unittest class.
 """
 
 import unittest
-from unittest import mock
+from unittest.mock import patch
 
 def yes_or_no():
     """Placeholder.
@@ -18,14 +20,17 @@ def yes_or_no():
 class YesNo(unittest.TestCase):
     """Placeholder.
     """
-    def test_quitting():
+    @patch('builtins.input', return_value="yes")
+    def test_quitting(self, input):
         """Placeholder.
         """
-        with mock.patch('builtins.input', return_value="yes"):
-            assert yes_or_no() == "Quitter!"
+        self.assertEqual(yes_or_no(), "Quitter!")
 
-        with mock.patch('builtins.input', return_value="no"):
-            assert yes_or_no() == "Awesome!"
+    @patch('builtins.input', return_value="no")
+    def test_no(self, input):
+        """Placeholder.
+        """
+        self.assertEqual(yes_or_no(), "Awesome!")
 
 if __name__ == '__main__':
     unittest.main()
