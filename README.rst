@@ -2,11 +2,11 @@
 Rock-Paper-Scissors
 ===================
 
-.. image:: 
-    :target: 
+.. image:: https://travis-ci.org/marshki/rock_paper_scissors.svg?branch=master
+    :target: https://travis-ci.org/marshki/rock_paper_scissors
 
-.. image:: 
-    :target: 
+.. image:: https://api.codacy.com/project/badge/Grade/c51fb45f342445e3bc2fe2f9d94f2d12    
+    :target: https://www.codacy.com/manual/marshki/rock_paper_scissors?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=marshki/rock_paper_scissors&amp;utm_campaign=Badge_Grade
 
 .. image:: https://img.shields.io/badge/Made%20with-Python-1f425f.svg
    :target: https://www.python.org/
@@ -21,8 +21,6 @@ Rock-Paper-Scissors
 Rock-Paper-Scissors from the CLI
 -----------------------------------
 No-frills implemenation of the classic game for Python 2 & 3.
-
-.. image::
  
 Requirements
 ------------
