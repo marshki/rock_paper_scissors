@@ -20,7 +20,7 @@ Rock-Paper-Scissors
 
 Rock-Paper-Scissors from the CLI
 -----------------------------------
-No-frills implemenation of the classic game for Python 2 & 3.
+No-frills implementation of the classic game for Python 2 & 3.
  
 Requirements
 ------------
